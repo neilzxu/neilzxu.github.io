@@ -1,65 +1,54 @@
----
-title: Home
-headerImg: beach.jpg
----
-<!-- Page Header -->
-<header class="intro-header" style="" alt="" title="">
-    <div class="container head">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-		<div class="hero-block">
-                <img class="img-circle portfolio-link" src="$baseurl$/static/img/face.png"  href="#portfolioModal1" data-toggle="modal" width="150" height="150" alt="" title="">
-            </div><br><br>
-                    <h1 id="top-title-font-weight-bold">title</h1>
-                <!--    <hr class="small"> -->
-                    <span class="subheading" id="textfloat">$site_description$
-                       <br> <br>
-                        <!-- ///// Fade Out Navbar Profile Picture -///// New Adding Front Profile Picture Mo. 6. April 2015 --> 
-                       <!--
- <img src="$baseurl$/static/img/kc.jpg" id="small-img-nav" width="40" height="40" class="img-circle" alt="newspace"> -->
-                    <i class="fa fa-chevron-down" id="scroll-down"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
 <!-- Main Content -->
 <div class="container front-end">
 	<div class="row">
 		<div class="posts">
         <article>
-            <header class="intro-header" style="background-image: url('$baseurl$/static/img/sky.jpg')">  
-                <div class="post-meta"> 
-                        
+            <header class="intro-header" style="background-image: url('$baseurl$/static/img/skyline.jpg')">  
+                <div class="post-meta">   
                 </div>
-                <h1 class="post-title"><a href="#" id="post-title-h1" rel="bookmark" title="link" itemprop="url">title of your website</a></h1>
-                <h1 class="post-title-readmore"><a href="#" rel="bookmark" title="title" itemprop="url" id="readmore-link"> ReadMore</a></h1>
+                <h1 class="post-title"><a href="#" id="post-title-h1" rel="bookmark" title="link" itemprop="url">Neil Xu</a></h1>
             </header>
 
-            </article>
+        </article>    
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+    <p>I'm a computer science major at Carnegie Mellon who enjoys bouldering, machine learning, and Dota.</p>
+
+    <p>And alchemy.</p>
+
+    
+        </div>
+    </div>
+</div>
 <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-<p>Welcome to my blog!</p>
-
-<p>I've reproduced a list of recent posts here for your reading pleasure:</p>
-
-<h3>Recent Posts</h3>
-$partial("templates/post-list.html")$
-
-<p>…or you can find more in the <a href="/archive.html">archives</a>.
-
-                <hr>
-
-$partial("templates/_pager.html)$
-</div></div></div>
+                <ul class="list-inline text-center">
+                    $if(github_username)$ 
+                    <li>
+                        <a href="https://github.com/$github_username$" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            </span>
+                        </a>
+                    </li>
+                    $endif$
+                    $if(linkedin_username)$
+                    <li>
+                        <a href="https://linkedin.com/in/$linkedin_username$" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-linkedin fa-stack-2x"></i>
+                            </span>
+                        </a>
+                    </li>
+                    $endif$
+                </ul>
+            </div>
+        </div>
+    </div>
 		</div>
-
-        
 	</div>
 </div>
 
