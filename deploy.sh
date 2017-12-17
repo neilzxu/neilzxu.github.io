@@ -18,6 +18,7 @@ rsync -a --filter='P _site/'      \
          --filter='P deploy.sh'   \
          --delete-excluded        \
          _site/ .
+
 rm deploy.sh
 git add -A
 git commit -m "$1"
