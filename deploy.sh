@@ -19,6 +19,7 @@ rsync -a --filter='P _site/'      \
          --delete-excluded        \
          _site/ .
 
+echo "neilzxu.me" > CNAME
 rm deploy.sh
 git add -A
 git commit -m "$1"
