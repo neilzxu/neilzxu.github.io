@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+    href="/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/monokai.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/academia/css/academicons.css">
+
+
+
+
+
+
+
+
+    <meta name="author" content="Neil Xu" />
+    <meta name="description" content="" />
+<meta property="og:site_name" content="Neil Xu"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="Neil Xu"/>
+<meta property="og:description" content=""/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content=""/>
+
+
+
+  <title>Neil Xu &ndash; Editing checklist for LaTeX papers</title>
+
+</head>
+<body class="dark-theme">
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/theme/img/profile.png" alt="Ziyu Xu (Neil)" title="Ziyu Xu (Neil)">
+      </a>
+
+      <h1>
+        <a href="/">Ziyu Xu (Neil)</a>
+      </h1>
+
+
+
+      <nav>
+        <ul class="list">
+
+
+
+            <li>
+              <a target="_self" href="/publications/" >Papers</a>
+            </li>
+            <li>
+              <a target="_self" href="/assets/cv.pdf" >CV</a>
+            </li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a class="sc-facebook" href="https://scholar.google.com/citations?user=Hiu3k1kAAAAJ" target="_blank">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-github" href="https://github.com/neilzxu" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-linkedin" href="https://linkedin.com/in/neilzxu" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+    
+    <h1 id="editing-checklist-for-latex-papers">Editing checklist for LaTeX papers</h1>
+  </header>
+  <div>
+<h1 id="checklist">Checklist</h1>
+<p>These are things I have failed to do at some point in the past, and hence have learned about.</p>
+<ul>
+<li>Have transition sentences between each section of the paper.</li>
+</ul>
+<h2 id="math-typsettingproofs">Math typsetting/Proofs</h2>
+<ul>
+<li>Punctuation in equations i.e.
+<ul>
+<li>periods if the equation is the last thing in the sentence.</li>
+<li>commas if it isn’t.</li>
+<li>commas on each line if the equations are separate between lines (particularly in proofs).</li>
+</ul></li>
+<li>Explanations of each line of proof should be clear.
+<ul>
+<li>Use labels over each inequality/equality.</li>
+<li>Explanation at the end of the line (with <code>\tag*{&lt;explanation here&gt;}</code>) should be well separated from the rest of the line.</li>
+</ul></li>
+<li>Make up a new, intuitive symbol to replace oft-repeated math expressions.
+<ul>
+<li>For example, if my function is approximately the logarithm function, denote it as <code>\overline{\log}</code>.</li>
+</ul></li>
+<li>Don’t start the beginning of a theorem/proof environment with an equation.
+<ul>
+<li>Good to contextualize or transition into the equation.</li>
+<li>Extra whitespace if you do <code>\begin{proof} \begin{align*} ...</code> or something similar. - Add an extra line, perhaps with some intuition about the following equations e.g. <code>\begin{proof}</code></li>
+</ul></li>
+</ul>
+<h2 id="dealing-with-an-appendix">Dealing with an appendix</h2>
+<ul>
+<li>Every appendix section should be referenced in the main body of the paper.</li>
+<li>There should be no broken references. This includes both internal references to labels, and bibliographic references.
+<ul>
+<li><code>Ctrl + F</code> for <code>??</code> usually finds them.</li>
+<li>Especially on Overleaf, have both main paper and appendix in one document, and split later with <code>pdftk</code>. <code>xcite</code> works inconsistently on Overleaf.</li>
+</ul></li>
+</ul>
+<h1 id="uploading-to-arxiv">Uploading to ArXiv</h1>
+<p>This <a href="https://mirrors.concertpass.com/tex-archive/support/flatex/flatex.c">C script</a> flattens your LaTeX file (i.e. replaces all the <code>\input</code> commands with their actual <code>.tex</code> sources) for uploading to arXiv, since it cannot handle multiple <code>.tex</code> files.</p>
+<h2 id="conference-vs.-arxiv-version">Conference vs. arXiv version</h2>
+<p>Sometimes we want the arXiv version to be agnostic of the conference format. I’ve been told it’s good practice to do this, although many people don’t and it doesn’t seem to be particularly detrimental to those that don’t. However, if you want to maintain separate versions, this is how I accomplish it.</p>
+<p>I store all content of the paper in a <code>tex/</code> directory. Hence, my folder for my paper looks something this:</p>
+<pre><code>- tex/
+|--- main.tex
+- common.sty
+- arxiv_draft.tex
+- conference_draft.tex</code></pre>
+<p>Then, I usually put the following snippet at the top of my <code>common.sty</code> style file:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode tex"><code class="sourceCode latex"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">etoolbox</span>}</span>
+<span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a><span class="fu">\newcommand</span>{<span class="ex">\ifarxiv</span>}[2]{</span>
+<span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>    <span class="fu">\ifdef</span>{<span class="fu">\arxivversion</span>}{#1}{#2}</span>
+<span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a>}</span>
+<span id="cb2-5"><a aria-hidden="true" href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a aria-hidden="true" href="#cb2-6" tabindex="-1"></a><span class="co">% Use the first TeX statement for conference version and the second TeX statement for the arXiv version as to handle formatting differences.</span></span></code></pre></div>
+<p>Thus, the <code>\ifarxiv</code> command becomes the first argument if <code>\arxivversion</code> when the first statement is declared, and otherwise becomes the second statement.</p>
+<p>My <code>arxiv_draft.tex</code> would then include</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode tex"><code class="sourceCode latex"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">common</span>}</span>
+<span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a><span class="fu">\newcommand\arxivversion</span></span></code></pre></div>
+<p>On the other hand, <code>conference_draft.tex</code> only includes <code>\usepackage{common}</code>. Both <code>*_draft.tex</code> files would need to have <code>\input{tex/main.tex}</code> somewhere in the body of the file. Now I can use <code>\ifarxiv{&lt;arxiv version of content&gt;}{&lt;conference version of content&gt;}</code> inside of <code>tex/main.tex</code> to have one content file for two different versions.</p>  </div>
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="false"
+          data-default-theme="dark"
+          type="text/javascript">
+  </script>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Neil Xu ",
+  "url" : "",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>
